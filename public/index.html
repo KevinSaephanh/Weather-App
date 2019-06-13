@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather App</title>
+
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Days+One&display=swap" rel="stylesheet">
+
+    <!--Icons made by https://www.flaticon.com/authors/good-ware" title="Good Ware" from "https://www.flaticon.com/"-->
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div id="container">
+        <h1>Here's Your Weather Report</h1>
+
+        <section class="wrapper">
+            <div class="row">
+                <h2 id="location"></h2>
+                <span id="time"></span>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <img id="weatherImg" src="images/cloud.png">
+                    <h2 id="weatherDesc"></h2>
+                </div>
+
+                <div class="col">
+                    <ul style="list-style: none;">
+                        <li id="temp"></li>
+                        <li id="humidity">Humidity: </li>
+                        <li id="wind">Wind: </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="wrapper">
+            <h3>Enter a Location</h3>
+            <form class="form-location">
+                <input type="text" name="location" class="form-control" id="searchText"
+                    placeholder="Enter a City or Coordinates (Lat/Lon)" maxlength="50" required autofocus>
+                <button class="btn" type="button">Search</button>
+            </form>
+        </section>
+    </div>
+
+    <script type="text/javascript" src="js/Weather.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+
+</html>

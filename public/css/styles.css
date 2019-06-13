@@ -1,0 +1,117 @@
+body {
+    /* Background Image Attribution
+    ** Vectors by <a target="_blank" href="https://www.vecteezy.com">Vecteezy.com</a>*/
+    background-image: url(../images/Matterhorn-Landscape.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    text-align: center;
+}
+
+#container h1 {
+    color: rgb(24, 243, 177);
+    font-size: 2.3rem;
+    font-family: 'Days One', sans-serif;
+    letter-spacing: 3px;
+}
+
+#container h1:hover {
+    color: rgb(98, 0, 255);
+}
+
+#container h2 {
+    font-size: 1.8rem;
+    color: rgb(7, 182, 109);
+    letter-spacing: 2px;
+}
+
+.wrapper {
+    height: 220px;
+}
+
+.wrapper h3 {
+    color: rgb(174, 252, 213);
+    font-size: 2.3rem;
+    font-family: 'Days One', sans-serif;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+}
+
+.wrapper h3:hover {
+    color: rgb(135, 8, 253);
+    font-size: 2.5rem;
+}
+
+.wrapper .form-control {
+    border: rgb(32, 245, 224) 5px solid;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    height: 35px;
+    width: 350px;
+    padding-left: 5px;
+}
+
+.wrapper .btn {
+    background-color: transparent;
+    border: rgb(35, 121, 112) 5px solid;
+    border-radius: 10px;
+    color: rgb(25, 204, 94);
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 50px;
+    width: 110px;
+    margin-left: 15px;
+}
+
+.wrapper .btn:hover {
+    background-color: rgb(79, 215, 233);
+    color: rgb(122, 19, 122);
+}
+
+.row {
+    width: 500px;
+    display: flex;
+    margin: 0 auto;
+}
+
+.col {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.col img {
+    height: 150px;
+    width: 150px;
+    margin: 20px 20px 20px 20px;
+}
+
+.col li {
+    text-align: left;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: rgb(32, 255, 170);
+    margin-bottom: 15px;
+}
+
+@media (max-width: 640px) {
+    #container h1 {
+        font-size: 1.5rem;
+    }
+
+    .wrapper h3 {
+        font-size: 1.2rem;
+    }
+
+    .wrapper .form-control {
+        font-size: 1rem;
+        height: 30px;
+        width: 220px;
+    }
+
+    .wrapper .btn {
+        font-size: 1rem;
+        height: 40px;
+        width: 70px;
+    }
+}
