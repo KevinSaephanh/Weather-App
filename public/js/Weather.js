@@ -1,23 +1,21 @@
 class Weather {
     constructor() {
         this.api = "http://api.openweathermap.org/data/2.5/weather?";
-        this.key = api_key;
+        this.key = "YOUR_API_KEY";
     }
 
     async getWeather(searchWord) {
-        let searchType;
-
-        //Apply proper searchType depending on searchWord (city or geolocation)
-        if (!searchWord.match(/\d+/g))
-            searchType = "q";
-        else {
-            const coordinates = searchWord.split("/").split(" ");
-            searchType = "lat=" + coordinates[0] + "&lon=" + coordinates[1];
+        if (!searchWord.match(/\d/)) {
+            const searchType = "q";
+            const res = await fetch(`${this.api}${searchType}=${searchWord}&APPID=${this.key}`);
+            const data = await res.json();
+            return data;
+        } else {
+            const coordinates = searchWord.split("/");
+            const searchType = "lat=" + coordinates[0] + "&lon=" + coordinates[1];
+            const res = await fetch(`${this.api}${searchType}&APPID=${this.key}`);
+            const data = await res.json();
+            return data;
         }
-
-        //Make get request and return response as json
-        const res = await fetch(`${api}${searchType}=${searchWord}&APPID=${key}`);
-        const data = await res.json();
-        return data;
     }
 }

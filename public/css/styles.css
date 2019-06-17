@@ -24,10 +24,6 @@ body {
     letter-spacing: 2px;
 }
 
-.wrapper {
-    height: 220px;
-}
-
 .wrapper h3 {
     color: rgb(174, 252, 213);
     font-size: 2.3rem;
@@ -68,7 +64,7 @@ body {
 }
 
 .row {
-    width: 500px;
+    width: 600px;
     display: flex;
     margin: 0 auto;
 }
@@ -81,16 +77,16 @@ body {
 }
 
 .col img {
-    height: 150px;
-    width: 150px;
+    height: 200px;
+    width: 200px;
     margin: 20px 20px 20px 20px;
 }
 
 .col li {
     text-align: left;
     font-size: 1.4rem;
-    font-weight: bold;
-    color: rgb(32, 255, 170);
+    font-weight: bolder;
+    color: rgb(7, 182, 109);
     margin-bottom: 15px;
 }
 
@@ -113,5 +109,14 @@ body {
         font-size: 1rem;
         height: 40px;
         width: 70px;
+    }
+
+    .col img {
+        height: 50px;
+        width: 50px;
+    }
+
+    .col li {
+        font-size: 1rem;
     }
 }
