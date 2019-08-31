@@ -7,39 +7,52 @@ window.onload = () => {
 document.querySelector(".btn").addEventListener("click", () => {
     let searchInput = document.getElementById("searchText").value;
 
-    weather.getWeather(searchInput).then((data) => {
-        updateWeather(data);
-    }).catch((err) => {
-        alert(err);
-    });
-});
-
-document.querySelector(".form-location").addEventListener("keydown", (e) => {
-    if (e.key == "Enter") {
-        let searchInput = document.getElementById("searchText").value;
-        e.preventDefault();
-
-        weather.getWeather(searchInput).then((data) => {
+    weather
+        .getWeather(searchInput)
+        .then(data => {
             updateWeather(data);
-        }).catch((err) => {
+        })
+        .catch(err => {
             alert(err);
         });
-    }
-}, false);
+});
+
+document.querySelector(".form-location").addEventListener(
+    "keydown",
+    e => {
+        if (e.key == "Enter") {
+            let searchInput = document.getElementById("searchText").value;
+            e.preventDefault();
+
+            weather
+                .getWeather(searchInput)
+                .then(data => {
+                    updateWeather(data);
+                })
+                .catch(err => {
+                    alert(err);
+                });
+        }
+    },
+    false
+);
 
 function getCurrentLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position) => {
-            const lat = parseFloat(Math.round(position.coords.latitude * 100) / 100).toFixed(2);
-            const lon = parseFloat(Math.round(position.coords.longitude * 100) / 100).toFixed(2);
+        navigator.geolocation.getCurrentPosition(position => {
+            const lat = parseFloat(
+                Math.round(position.coords.latitude * 100) / 100
+            ).toFixed(2);
+            const lon = parseFloat(
+                Math.round(position.coords.longitude * 100) / 100
+            ).toFixed(2);
             const coordinates = lat + "/" + lon;
 
-            weather.getWeather(coordinates).then((data) => {
+            weather.getWeather(coordinates).then(data => {
                 updateWeather(data);
             });
         });
-    } else
-        console.log("Geolocation is not supported by your browser");
+    } else console.log("Geolocation is not supported by your browser");
 }
 
 function updateWeather(data) {
@@ -55,7 +68,7 @@ function updateWeather(data) {
     //Append values from json data to html elements
     location.innerHTML = data.name + ", " + data.sys.country;
     time.innerHTML = getTime(data.sys.country, data.dt);
-    weatherMain.innerHTML = (data.weather[0].main);
+    weatherMain.innerHTML = data.weather[0].main;
     weatherImg.src = getWeatherImg(weatherMain.innerHTML);
     temp.innerHTML = convertKelvin(data.main.temp);
     humidity.innerHTML = "Humidity: " + data.main.humidity + "%";
@@ -103,7 +116,7 @@ function getWeatherImg(description) {
 }
 
 function convertKelvin(tempK) {
-    const tempF = Math.round(((parseFloat(tempK) - 273.15) * (9 / 5)) + 32);
+    const tempF = Math.round((parseFloat(tempK) - 273.15) * (9 / 5) + 32);
     const tempC = Math.round(parseFloat(tempK) - 273.15);
     const formattedTemp = tempF + "&deg;F" + "/" + tempC + "&degC";
 
